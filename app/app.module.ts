@@ -18,10 +18,12 @@ import { EventService,
   VoterService,
   LocationValidator,
   DurationPipe } from './events/index'
-import { 
+import { JQ_TOKEN,
   TOASTR_TOKEN, 
   Toastr,
-  CollapsibleWellComponent } from './common/index'
+  CollapsibleWellComponent,
+  SimpleModalComponent,
+  ModalTriggerDirective } from './common/index'
 import { NavBarComponent } from './nav/navbar.component'
 import { Error404Component } from './errors/404.component'
 import { appRoutes } from './routes'
@@ -48,12 +50,15 @@ declare let jQuery : Object;
     Error404Component,
     SessionListComponent,
     CollapsibleWellComponent,
+    SimpleModalComponent,
     UpvoteComponent,
+    ModalTriggerDirective,
     LocationValidator,
     DurationPipe ],
   providers: [
     EventService, 
     { provide: TOASTR_TOKEN, useValue: toastr },
+    { provide: JQ_TOKEN, useValue: jQuery },
     EventResolver,
     EventListResolver,
     VoterService,
